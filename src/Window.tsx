@@ -53,7 +53,8 @@ export default class App extends React.Component<{}, AppState> {
         super(props);
         
         const usdAssets: USDAssetType[] = [
-            {name: "Sample 1", url:"./samples/stage01.usd"},
+            {name: "EuclidVR", url:"omniverse://office.appincloud.cn/Users/NVIDIA/Samples/EuclidVR/EuclidVR_Stage.usd"},
+            {name: "Automotive_Material_Library_Pristine", url:"omniverse://ovserver2.appincloud.cn/Users/NVIDIA/Samples/Examples/2023_3/Rendering/Automotive_Material_Library_Pristine/Automotive_Material_Library_Pristine.usd"},
             {name: "Sample 2", url:"./samples/stage02.usd"},
         ];
         
@@ -233,6 +234,19 @@ export default class App extends React.Component<{}, AppState> {
             }
         }
         return null;
+    }
+
+    /**
+    * @function _onStagePlay
+    *
+    * play
+    */
+    private _onStagePlay (): void {
+        const reset_message: AppStreamMessageType = {
+            event_type: "play",
+            payload: {}
+        };
+        AppStream.sendMessage(JSON.stringify(reset_message));
     }
     
     /**
@@ -417,6 +431,7 @@ export default class App extends React.Component<{}, AppState> {
                         selectedUSDPrims={this.state.selectedUSDPrims}
                         fillUSDPrim={(value) => this._onFillUSDPrim(value)}
                         onReset={() => this._onStageReset()}
+                        onPlay={() => this._onStagePlay()}
                     />
                     </>
                 }

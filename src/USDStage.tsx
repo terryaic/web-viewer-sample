@@ -25,6 +25,7 @@ interface USDStageProps {
     onSelectUSDPrims: (selectedUsdPrims: Set<USDPrimType>) => void;
     fillUSDPrim: (usdPrim: USDPrimType) => void;
     onReset: () => void;
+    onPlay: () => void;
 }
 
 export default class USDStage extends React.Component<USDStageProps, { expandedIds: Set<string> }> {
@@ -120,12 +121,17 @@ export default class USDStage extends React.Component<USDStageProps, { expandedI
         this.props.onReset();
     };
 
+    _onPlay = () => {
+        this.props.onPlay();
+    };
+
     render() {
         return (
             <div className="usdStageContainer" style={{ width: this.props.width }}>
                 <div className="usdStageHeader">
                     {'USD Stage'}
                     <button className="usdStageButton" onClick={this._onReset}>Reset</button>
+                    <button className="usdStageButton" onClick={this._onPlay}>Play</button>
                 </div>
                 <ul className="list-container">
                     {this._renderList(this.props.usdPrims)}
