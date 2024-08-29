@@ -53,8 +53,9 @@ export default class App extends React.Component<{}, AppState> {
         super(props);
         
         const usdAssets: USDAssetType[] = [
-            {name: "EuclidVR", url:"omniverse://office.appincloud.cn/Users/NVIDIA/Samples/EuclidVR/EuclidVR_Stage.usd"},
-            {name: "Automotive_Material_Library_Pristine", url:"omniverse://ovserver2.appincloud.cn/Users/NVIDIA/Samples/Examples/2023_3/Rendering/Automotive_Material_Library_Pristine/Automotive_Material_Library_Pristine.usd"},
+            {name: "EuclidVR", url:"omniverse://localhost/NVIDIA/Samples/EuclidVR/EuclidVR_Stage.usd"},
+            {name: "Automotive_Material_Library_Pristine", url:"omniverse://localhost/NVIDIA/Samples/Examples/2023_3/Rendering/Automotive_Material_Library_Pristine/Automotive_Material_Library_Pristine.usd"},
+            {name: "Sample 1", url:"./samples/stage01.usd"},
             {name: "Sample 2", url:"./samples/stage02.usd"},
         ];
         
